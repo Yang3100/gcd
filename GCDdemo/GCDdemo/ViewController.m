@@ -34,7 +34,7 @@
     //    [self asyncSerial];
     
     // 同步执行 + 主队列
-    //    dispatch_queue_t queue = dispatch_queue_create("net.bujige.testQueue", DISPATCH_QUEUE_CONCURRENT);
+    //    dispatch_queue_t queue = dispatch_queue_create("com.yangkejun.GCDdemo", DISPATCH_QUEUE_CONCURRENT);
     //    dispatch_async(queue, ^{
     //        [self syncMain];
     //    });
@@ -74,6 +74,11 @@
  */
 - (void)syncConcurrent{
     NSLog(@"syncConcurrent---begin");
+    
+    /* com.yangkejun.GCDdemo
+    @param label 第一个参数，一般以Bundle Identifier
+    @param attr  DISPATCH_QUEUE_CONCURRENT（同步）  DISPATCH_QUEUE_SERIAL_INACTIVE（异步）
+     */
     
     dispatch_queue_t queue = dispatch_queue_create("com.yangkejun.GCDdemo", DISPATCH_QUEUE_CONCURRENT);
     
@@ -322,6 +327,7 @@
             NSLog(@"任务4");
         }
     });
+
 }
 
 
